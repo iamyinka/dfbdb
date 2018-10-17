@@ -30,9 +30,13 @@
           </div>
           <div id="navbar5" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><%= link_to "Staffs", root_path %></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Contact</a></li>
+              <% if user_signed_in? %>
+                <li class="active"><%= link_to "Staffs", root_path %></li>
+                <li><a href="#">Departments</a></li>
+                <li><a href="#">Donors</a></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+              <% end %>
             </ul>
           </div>
           <!--/.nav-collapse -->
@@ -46,8 +50,10 @@
       <%= yield %>
     </div>
 
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" charset="utf-8"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" charset="utf-8"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= custom_bootstrap_flash %>
   </body>
 </html>
