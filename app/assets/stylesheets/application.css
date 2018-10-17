@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+ .navbar {
+   border-radius: 0;
+ }
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  width: auto;
+}
+
+.example5 .navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.example5 .navbar-brand>img {
+  padding: 7px 14px;
+}
+
+
+#logo {
+  text-align: center;
+}
+
+#logo img {
+  width: 25%;
+}
