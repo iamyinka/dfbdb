@@ -1,5 +1,6 @@
 class StaffsController < ApplicationController
-  before_action :staff_params, only: [:new, :create, :edit, :update]
+  before_action :staff_params, only: [:create, :update]
+  before_action :set_staff, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   def index
@@ -21,10 +22,33 @@ class StaffsController < ApplicationController
     end
   end
 
+  def show
+    #code
+  end
+
+  def edit
+    #code
+  end
+
+  def update
+    @staff = Staff.update(staff_params)
+    if @staff.update
+      flash[:notice] = "Staff details successfully updated."
+      redirect_to staf_path
+    else
+      flash[:danger] = "An error occurred that prohibited the staff from saving to the database"
+      render :edit
+    end
+  end
+
   private
 
   def staff_params
-    params.require(:staff).permit(:fname, :lname, :phone, :email, :address, :position)
+    params.require(:staff).permit(:fname, :lname, :phone, :email, :address, :position, :department_id)
+  end
+
+  def set_staff
+    @staff = Staff.find(params[:id])
   end
 
 end

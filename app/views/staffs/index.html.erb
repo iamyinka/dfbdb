@@ -23,7 +23,7 @@
             <td><%= staff.phone %></td>
             <td><%= staff.email %></td>
             <td>
-              <%= link_to "View", "#", class: "btn btn-success" %>
+              <%= link_to "View", staff, class: "btn btn-success" %>
               <%= link_to "Edit", "#", class: "btn btn-warning" %>
               <%= link_to "Delete", "#", class: "btn btn-danger" %>
             </td>
@@ -34,6 +34,6 @@
     </div><!--end of .table-responsive-->
   </div>
   <div class="col-md-4 col-md-offset-4">
-    <%= link_to raw("&laquo; Add A New Staff &raquo;"), "#", class: "btn btn-primary btn-lg btn-block" %>
+    <%= link_to raw("&laquo; Add A New Staff &raquo;"), new_staff_path, class: "btn btn-primary btn-lg btn-block" %>
   </div>
 </div>
