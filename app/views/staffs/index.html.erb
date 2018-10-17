@@ -1,1 +1,36 @@
-<h1>Welcome :: HomePage</h1>
+<h2>DFB Nigeria :: <small>Staff Database</small></h2>
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="table-responsive">
+      <table summary="This table shows list of staffs in the Damien Foundation Belgium (Nigeria) database" class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>Phone Number</th>
+            <th>Email</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @staffs.each do |staff| %>
+          <tr>
+            <td><%= staff.fname %></td>
+            <td><%= staff.lname %></td>
+            <td><%= staff.position %></td>
+            <td><%= staff.phone %></td>
+            <td><%= staff.email %></td>
+            <td>
+              <%= link_to "View", "#", class: "btn btn-success" %>
+              <%= link_to "Edit", "#", class: "btn btn-warning" %>
+              <%= link_to "Delete", "#", class: "btn btn-danger" %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div><!--end of .table-responsive-->
+  </div>
+</div>
