@@ -1,8 +1,12 @@
 class DepartmentsController < ApplicationController
-  #code
+  before_action :set_dept, except: [:index, :new, :create]
 
   def index
     @departments = Department.all
+  end
+
+  def show
+    #code
   end
 
 

@@ -14,9 +14,9 @@
           </div>
           <div class="panel-body">
             <% if dept.staffs.any? %>
-              <%= pluralize(dept.staffs.count, "Staff") %> <%= link_to raw("View staffs under this department &raquo;"), department_path(dept) %>
+              &mdash; <%= pluralize(dept.staffs.count, "Staff") %> <%= link_to raw("View staffs under this department &raquo;"), department_path(dept), class: "pull-right" %>
             <% else %>
-              "There are no staff(s) in this department"
+              &mdash; "There are no staff(s) in this department"
             <% end %>
           </div>
         <% end %>
