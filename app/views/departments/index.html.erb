@@ -1,0 +1,26 @@
+<div class="row">
+  <h2 class="text-center">
+    DFB Departments
+  </h2>
+
+  <div class="col-md-6 col-md-offset-3">
+    <div class="well">
+      <div class="panel panel-default">
+        <% @departments.each do |dept| %>
+          <div class="panel-heading">
+            <h3 class="panel-title">
+              <strong>Department: </strong> <%= dept.dept_name %>
+            </h3>
+          </div>
+          <div class="panel-body">
+            <% if dept.staffs.any? %>
+              <%= pluralize(dept.staffs.count, "Staff") %> <%= link_to raw("View staffs under this department &raquo;"), department_path(dept) %>
+            <% else %>
+              "There are no staff(s) in this department"
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

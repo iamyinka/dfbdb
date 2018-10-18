@@ -24,7 +24,7 @@
             <td><%= staff.email %></td>
             <td>
               <%= link_to "View", staff, class: "btn btn-success" %>
-              <%= link_to "Edit", "#", class: "btn btn-warning" %>
+              <%= link_to "Edit", edit_staff_path(staff), class: "btn btn-warning" %>
               <%= link_to "Delete", "#", class: "btn btn-danger" %>
             </td>
           </tr>
