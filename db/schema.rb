@@ -10,12 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_17_135807) do
+ActiveRecord::Schema.define(version: 2018_10_18_152901) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "department_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "title"
+    t.index ["department_id"], name: "index_categories_on_department_id"
+  end
 
   create_table "departments", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.string "dept_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "staff_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+    t.bigint "staff_id"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_staff_categories_on_category_id"
+    t.index ["staff_id"], name: "index_staff_categories_on_staff_id"
   end
 
   create_table "staffs", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
@@ -43,5 +60,8 @@ ActiveRecord::Schema.define(version: 2018_10_17_135807) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "departments"
+  add_foreign_key "staff_categories", "categories"
+  add_foreign_key "staff_categories", "staffs"
   add_foreign_key "staffs", "departments"
 end

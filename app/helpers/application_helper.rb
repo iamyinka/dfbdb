@@ -11,4 +11,8 @@ module ApplicationHelper
     flash_messages.join("\n").html_safe
   end
 
+  def full_name(var)
+    "#{var.fname} #{var.lname}"
+  end
+
 end

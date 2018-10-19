@@ -1,5 +1,7 @@
 class Staff < ApplicationRecord
   belongs_to :department
+  has_many :staff_categories
+  has_many :categories, through: :staff_categories
 
   validates :fname, presence: true, length: { minimum: 3, maximum: 50 }
   validates :lname, presence: true, length: { minimum: 3, maximum: 50 }

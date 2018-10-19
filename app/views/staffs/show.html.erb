@@ -35,7 +35,16 @@
         <hr>
         <strong>Position:</strong> <%= @staff.position %> <br>
         <hr>
-        <strong>Department: </strong> <%= @staff.department.dept_name %> <br>
+        <strong>Department: </strong>
+          <%= @staff.department.dept_name %>
+          <ul>
+            <% if @staff.categories.any? %>
+              <% @staff.categories.each do |cat_staff| %>
+              <li>&mdash; <%= cat_staff.title %></li>
+              <% end %>
+            <% end %>
+          </ul>
+          <br>
         <hr>
         <strong>Staff Since: </strong> Coming soon <br>
         <hr>

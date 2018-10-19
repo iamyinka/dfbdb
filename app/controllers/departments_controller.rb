@@ -6,7 +6,7 @@ class DepartmentsController < ApplicationController
   end
 
   def show
-    #code
+    @dept_categories = @department.categories.all
   end
 
 
