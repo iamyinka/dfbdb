@@ -23,9 +23,11 @@
             <td><%= staff.phone %></td>
             <td><%= staff.email %></td>
             <td>
-              <%= link_to "View", staff, class: "btn btn-success" %>
-              <%= link_to "Edit", edit_staff_path(staff), class: "btn btn-warning" %>
-              <%= link_to "Delete", "#", class: "btn btn-danger" %>
+              <div class="btn-group btn-group-md">
+                <%= link_to "View", staff, class: "btn btn-success" %>
+                <%= link_to "Edit", edit_staff_path(staff), class: "btn btn-warning" %>
+                <%= link_to "Delete", staff, method: :delete, data: { confirm: "Confirm Staff Deletion?" }, class: "btn btn-danger" %>
+              </div>
             </td>
           </tr>
           <% end %>

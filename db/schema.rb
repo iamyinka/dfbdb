@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_18_152901) do
+ActiveRecord::Schema.define(version: 2018_10_20_091757) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
     t.bigint "department_id"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2018_10_18_152901) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "department_id"
+    t.string "status"
+    t.string "leave_type"
     t.index ["department_id"], name: "index_staffs_on_department_id"
   end
 

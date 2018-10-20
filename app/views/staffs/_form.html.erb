@@ -1,0 +1,55 @@
+<%= form_for @staff do |f| %>
+  <div class="form-group">
+    <label for="fname">First Name</label>
+    <%= f.text_field :fname, class: "form-control", placeholder: "First Name" %>
+  </div>
+
+  <div class="form-group">
+    <label for="lname">Last Name</label>
+    <%= f.text_field :lname, class: "form-control", placeholder: "Last Name" %>
+  </div>
+
+  <div class="form-group">
+    <label for="address">Address</label>
+    <%= f.text_field :address, class: "form-control", placeholder: "Address" %>
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email Address</label>
+    <%= f.email_field :email, class: "form-control", placeholder: "Email Address" %>
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <%= f.text_field :phone, class: "form-control", placeholder: "Phone Number" %>
+  </div>
+
+  <div class="form-group">
+    <label for="position">Position</label>
+    <%= f.text_field :position, class: "form-control", placeholder: "Position" %>
+  </div>
+
+  <div class="form-group">
+    <label for="status">Status: </label>
+    <%= f.select :status, [["Active", "Active"], ["Inactive", "Inactive"]], prompt: ["Choose One"], class: "form-control", id: "status-field" %>
+  </div>
+
+  <div class="form-group">
+    <label for="leave_type">Leave Type: </label>
+    <%= f.select :leave_type, [["Public Leave", "Public Leave"], ["Sick Leave", "Sick Leave"], ["Casual Leave", "Casual Leave"], ["Contractual Leave", "Contractual Leave"]], prompt: ["Choose One"], class: "form-control", id: "status-field" %>
+  </div>
+
+  <div class="form-group">
+    <label for="department_id">Department: </label>
+    <%= f.collection_select :department_id, Department.all, :id, :dept_name %>
+  </div>
+
+  <div class="form-group text-center">
+    <% if params[:action] == 'new' %>
+      <%= f.submit "Add New Staff", class: "btn btn-primary" %>
+    <% else %>
+      <%= f.submit "Update Staff Details", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+<% end %>

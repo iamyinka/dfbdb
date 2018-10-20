@@ -31,20 +31,25 @@ class StaffsController < ApplicationController
   end
 
   def update
-    @staff = Staff.update(staff_params)
-    if @staff.update
+    if @staff.update(staff_params)
       flash[:notice] = "Staff details successfully updated."
-      redirect_to staf_path
+      redirect_to staff_path
     else
       flash[:danger] = "An error occurred that prohibited the staff from saving to the database"
       render :edit
     end
   end
 
+  def destroy
+    @staff.destroy
+    flash[:notice] = "Staff details successfully deleted from DFB Staffs database."
+    redirect_to root_path
+  end
+
   private
 
   def staff_params
-    params.require(:staff).permit(:fname, :lname, :phone, :email, :address, :position, :department_id)
+    params.require(:staff).permit(:fname, :lname, :phone, :email, :address, :position, :department_id, :status, :leave_type)
   end
 
   def set_staff

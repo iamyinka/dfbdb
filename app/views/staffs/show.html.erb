@@ -1,6 +1,6 @@
 <div class="row">
   <h2><strong>Detailed Profile:</strong> <%= "#{@staff.fname} #{@staff.lname}" %></h2>
-  <div class="profile-photo text-center">
+  <div class="profile-photo text-center mb-2">
     <img src="https://via.placeholder.com/150x150" alt="" class="img-circle img-thumbnail">
   </div>
   <div class="col-md-4">
@@ -31,7 +31,7 @@
       <div class="panel-body">
         <strong>Staff Number:</strong> Coming soon <br>
         <hr>
-        <strong>Status:</strong> Coming soon <br>
+        <strong>Status:</strong> <%= @staff.status %> <br>
         <hr>
         <strong>Position:</strong> <%= @staff.position %> <br>
         <hr>
@@ -44,7 +44,6 @@
               <% end %>
             <% end %>
           </ul>
-          <br>
         <hr>
         <strong>Staff Since: </strong> Coming soon <br>
         <hr>
@@ -63,7 +62,7 @@
         <hr>
         <strong>Remaining Leave Days: </strong> Coming soon <br>
         <hr>
-        <strong>Leave Tye: </strong> Coming soon <br>
+        <strong>Leave Tye: </strong> <%= @staff.leave_type %> <br>
         <hr>
         <strong>Organization/Donor: </strong> Coming soon <br>
         <hr>
@@ -125,3 +124,11 @@
     <img src="https://via.placeholder.com/200x200" alt="">
   </div>
 </div>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center mt-2">
+      <div class="btn-group btn-group-md">
+        <%= link_to "Back", root_path, class: "btn btn-success btn-lg" %> <%= link_to "Edit Profile", edit_staff_path(@staff), class: "btn btn-warning btn-lg" %> <%= link_to "Delete Profile", @staff, method: :delete, data: { confirm: "Confirm Staff Deletion?" }, class: "btn btn-danger btn-lg" %>
+      </div>
+    </div>
+  </div>
