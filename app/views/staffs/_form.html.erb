@@ -29,14 +29,15 @@
     <%= f.text_field :position, class: "form-control", placeholder: "Position" %>
   </div>
 
-  <!-- <div class="form-group">
-    <label for="status">Status: </label>
-    <%= f.select :status, [["Active", "Active"], ["Inactive", "Inactive"]], prompt: ["Choose One"], class: "form-control", id: "status-field" %>
-  </div> -->
 
   <div class="form-group">
     <label for="leave_type">Leave Type: </label>
     <%= f.select :leave_type, [["Public Leave", "Public Leave"], ["Sick Leave", "Sick Leave"], ["Casual Leave", "Casual Leave"], ["Contractual Leave", "Contractual Leave"]], prompt: ["Choose One"], class: "form-control", id: "status-field" %>
+  </div>
+
+  <div class="form-group">
+    <label for="status">Status: </label>
+    <%= f.select :status, [["Active", "Active"], ["Inactive", "Inactive"]], prompt: ["Choose One"], class: "form-control", id: "status-field" %>
   </div>
 
   <div class="form-group">
