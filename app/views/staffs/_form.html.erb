@@ -32,17 +32,17 @@
 
   <div class="form-group">
     <label for="leave_type">Leave Type: </label>
-    <%= f.select :leave_type, [["Public Leave", "Public Leave"], ["Sick Leave", "Sick Leave"], ["Casual Leave", "Casual Leave"], ["Contractual Leave", "Contractual Leave"]], prompt: ["Choose One"], class: "form-control", id: "status-field" %>
+    <%= f.select :leave_type, [["Public Leave", "Public Leave"], ["Sick Leave", "Sick Leave"], ["Casual Leave", "Casual Leave"], ["Contractual Leave", "Contractual Leave"]], {}, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <label for="status">Status: </label>
-    <%= f.select :status, [["Active", "Active"], ["Inactive", "Inactive"]], prompt: ["Choose One"], class: "form-control", id: "status-field" %>
+    <%= f.select :status, [["Active", "Active"], ["Inactive", "Inactive"]], {}, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <label for="department_id">Department: </label>
-    <%= f.collection_select :department_id, Department.all, :id, :dept_name %>
+    <%= f.collection_select :department_id, Department.all, :id, :dept_name, {}, class: "form-control" %>
   </div>
 
   <div class="form-group text-center">
@@ -51,6 +51,7 @@
     <% else %>
       <%= f.submit "Update Staff Details", class: "btn btn-primary" %>
     <% end %>
+    <%= link_to "Cancel", root_path, class: "btn btn-danger" %>
   </div>
 
 <% end %>
