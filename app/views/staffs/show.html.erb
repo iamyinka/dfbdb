@@ -17,7 +17,7 @@
         <hr>
         <strong>Phone: </strong> <%= @staff.phone %> <br>
         <hr>
-        <strong>Date of Birth: </strong> Coming soon <br>
+        <strong>Date of Birth: </strong> <%= @staff.dob %> &mdash; <strong><%= age(@staff.dob) %> Years Old</strong> <br>
         <hr>
       </div>
     </div>
@@ -29,7 +29,7 @@
         <h3 class="panel-title text-right">Staff Details</h3>
       </div>
       <div class="panel-body">
-        <strong>Staff Number:</strong> Coming soon <br>
+        <strong>Staff Number:</strong> <%= @staff.staff_id %> <br>
         <hr>
         <strong>Status:</strong> <%= @staff.status %> <br>
         <hr>
@@ -45,7 +45,7 @@
             <% end %>
           </ul>
         <hr>
-        <strong>Staff Since: </strong> Coming soon <br>
+        <strong>Staff Since: </strong> <%= @staff.staff_since %> &mdash; <strong><%= time_ago_in_words(@staff.staff_since) %> ago</strong> <br>
         <hr>
       </div>
     </div>

@@ -17,7 +17,7 @@ class StaffsController < ApplicationController
       flash[:notice] = "New staff successfully added to the DFB Staffs database."
       redirect_to root_path
     else
-      flash[:danger] = "An error occurred that prohibited the staff from saving to the database"
+      flash[:error] = "An error occurred that prohibited the staff from saving to the database"
       render :new
     end
   end
@@ -49,7 +49,7 @@ class StaffsController < ApplicationController
   private
 
   def staff_params
-    params.require(:staff).permit(:fname, :lname, :phone, :email, :address, :position, :department_id, :status, :leave_type, category_ids: [])
+    params.require(:staff).permit(:fname, :lname, :phone, :email, :address, :position, :department_id, :status, :leave_type, :dob, :staff_since, :staff_id, category_ids: [])
   end
 
   def set_staff
