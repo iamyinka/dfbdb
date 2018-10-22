@@ -45,6 +45,13 @@
     <%= f.collection_select :department_id, Department.all, :id, :dept_name, {}, class: "form-control" %>
   </div>
 
+  <div class="form-group">
+    <label for="dept-post">Department Position</label><br>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :title do |cb| %>
+      <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+    <% end %>
+  </div>
+
   <div class="form-group text-center">
     <% if params[:action] == 'new' %>
       <%= f.submit "Add New Staff", class: "btn btn-primary" %>

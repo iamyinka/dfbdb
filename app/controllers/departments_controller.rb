@@ -9,6 +9,21 @@ class DepartmentsController < ApplicationController
     @dept_categories = @department.categories.all
   end
 
+  def new
+    @department = Department.new
+  end
+
+  def create
+    @department = Department.new(dept_params)
+    if @department.save
+      flash[:notice] = "New Department Successfully Added"
+      redirect_to departments_path
+    else
+      flash[:danger] = "Something went wrong"
+      render 'new'
+    end
+
+  end
 
   private
 

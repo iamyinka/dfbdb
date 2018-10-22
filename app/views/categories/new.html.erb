@@ -1,0 +1,27 @@
+<div class="row">
+  <h2 class="text-center">Add A New Department Title</h2>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @category do |f| %>
+      <div class="form-group">
+        <label for="department_id">Departments</label>
+        <%= f.collection_select :department_id, Department.all, :id, :dept_name, {}, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <label for="title">Department Title</label>
+        <%= f.text_field :title, class: "form-control", placeholder: "Department Title" %>
+      </div>
+
+      <div class="form-group text-center">
+        <% if params[:action] == 'new' %>
+          <%= f.submit "Add New Department Title", class: "btn btn-primary" %>
+        <% else %>
+          <%= f.submit "Update Department Title", class: "btn btn-primary" %>
+        <% end %>
+        <%= link_to "Cancel", departments_path, class: "btn btn-danger" %>
+      </div>
+
+    <% end %>
+
+  </div>
+</div>

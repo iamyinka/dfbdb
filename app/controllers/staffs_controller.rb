@@ -49,7 +49,7 @@ class StaffsController < ApplicationController
   private
 
   def staff_params
-    params.require(:staff).permit(:fname, :lname, :phone, :email, :address, :position, :department_id, :status, :leave_type)
+    params.require(:staff).permit(:fname, :lname, :phone, :email, :address, :position, :department_id, :status, :leave_type, category_ids: [])
   end
 
   def set_staff
